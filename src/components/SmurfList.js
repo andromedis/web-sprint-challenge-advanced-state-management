@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // Component imports
 import Smurf from './Smurf';
 
- const SmurfList = ()=> {
+ const SmurfList = (props) => {
     // const isLoading = false;
     // const testSmurf = {
     //     id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",

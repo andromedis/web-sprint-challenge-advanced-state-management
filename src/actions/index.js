@@ -26,12 +26,12 @@ export const fetchSmurfs = () => {
     }
 }
 
-const addSmurf = (smurf) => {
-    dispatch({ type: ADD_SMURF, payload: smurf });
+export const addSmurf = (smurf) => {
+    return { type: ADD_SMURF, payload: smurf };
 }
 
-const setError = (error) => {
-    dispatch({ type: ADD_ERROR, payload: error });
+export const setError = (error) => {
+    return { type: ADD_ERROR, payload: error };
 }
 
 //Task List:
