@@ -16,26 +16,38 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         
         case FETCH_SMURF_START:
+            console.log('REDUCER: FETCH_SMURF_START');
             return {
-
-            }
+                ...state,
+                isLoading: true,
+            };
         case FETCH_SMURF_SUCCESS:
+            console.log('REDUCER: FETCH_SMURF_SUCCESS');
             return {
-
-            }
+                ...state,
+                isLoading: false,
+            };
         case FETCH_SMURF_FAILURE:
+            console.log('REDUCER: FETCH_SMURF_FAILURE');
             return {
-
-            }
+                ...state,
+                isLoading: false,
+            };
         case ADD_SMURF:
+            console.log('REDUCER: ADD_SMURF');
             return {
-                
-            }
+                ...state,
+                smurfs: [ ...state.smurfs, action.payload ],
+                error: '',
+            };
         case ADD_ERROR:
+            console.log('REDUCER: ADD_ERROR');
             return {
-
-            }
+                ...state,
+                error: action.payload,
+            };
         default:
+            console.warn('REDUCER: evaluated default case, returning state unchanged');
             return state;
     }
 }

@@ -15,18 +15,19 @@ export const fetchSmurfs = () => {
                 console.log(res.data);
                 dispatch({ type: FETCH_SMURF_SUCCESS });
                 res.data.forEach(smurf => {
-                    addSmurf(smurf);
+                    dispatch(addSmurf(smurf));
                 })
             })
             .catch(err => {
                 console.error(err);
                 dispatch({ type: FETCH_SMURF_FAILURE });
-                setError(err);
+                dispatch(setError(err));
             })
     }
 }
 
 export const addSmurf = (smurf) => {
+    console.log('inside addSmurf')
     return { type: ADD_SMURF, payload: smurf };
 }
 

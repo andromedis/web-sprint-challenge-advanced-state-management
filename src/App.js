@@ -17,7 +17,9 @@ import "./App.css";
 class App extends Component {
 
   componentDidMount() {
-    fetchSmurfs();
+    console.log('component mounted');
+    this.props.fetchSmurfs();
+    console.log('after fetchSmurfs()')
   }
 
   render() {
