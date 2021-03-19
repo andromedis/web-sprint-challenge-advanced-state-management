@@ -1,18 +1,20 @@
+// Library imports
 import axios from 'axios';
 
+// Action string exports
 export const FETCH_SMURF_START = 'FETCH_SMURF_START';
 export const FETCH_SMURF_SUCCESS = 'FETCH_SMURF_SUCCESS';
 export const FETCH_SMURF_FAILURE = 'FETCH_SMURF_FAILURE';
 export const ADD_SMURF = 'ADD_SMURF';
 export const ADD_ERROR = 'ADD_ERROR';
 
+// Thunk action to get smurfs from API
 export const fetchSmurfs = () => {
     return (dispatch) => {
         dispatch({ type: FETCH_SMURF_START });
 
         axios.get(`http://localhost:3333/smurfs`)
             .then(res => {
-                console.log(res.data);
                 dispatch({ type: FETCH_SMURF_SUCCESS });
                 res.data.forEach(smurf => {
                     dispatch(addSmurf(smurf));
@@ -26,8 +28,8 @@ export const fetchSmurfs = () => {
     }
 }
 
+// Standard actions
 export const addSmurf = (smurf) => {
-    console.log('inside addSmurf')
     return { type: ADD_SMURF, payload: smurf };
 }
 

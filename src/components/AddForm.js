@@ -1,6 +1,8 @@
+// Library imports
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+// Action imports
 import { setError, addSmurf } from '../actions';
 
 const AddForm = (props) => {
@@ -21,21 +23,23 @@ const AddForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
-            console.log('field is empty');
             props.setError("Name, position and nickname fields are required.");
         }
         else {
-            console.log('adding smurf')
             props.addSmurf({
                 name: state.name,
                 position: state.position,
                 nickname: state.nickname,
                 description: state.description,
-            })
+            });
+            setState({
+                name: '',
+                position: '',
+                nickname: '',
+                description: '',
+            });
         }
     }
-
-    // const errorMessage = "";
 
     return(<section>
         <h2>Add Smurf</h2>

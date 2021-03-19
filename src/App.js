@@ -1,25 +1,23 @@
-// Libraries
+// Library imports
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-// Actions
+// Action imports
 import { fetchSmurfs } from './actions';
 
-// Components
+// Component imports
 import AddForm from './components/AddForm';
 import SmurfList from './components/SmurfList';
 import Header from './components/Header';
 
-// Styles
+// Style imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends Component {
 
   componentDidMount() {
-    console.log('component mounted');
     this.props.fetchSmurfs();
-    console.log('after fetchSmurfs()')
   }
 
   render() {
